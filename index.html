@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/">
     <link rel="stylesheet" href="/style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="/ghibli-pwa/manifest.json" />
     <meta name="theme-color" content="#1f1f1f" />
 
 </head>
@@ -83,7 +83,7 @@
     <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-      navigator.serviceWorker.register("sw.js").then(
+      navigator.serviceWorker.register("/ghibli-pwa/sw.js").then(
         registration => {
           console.log("Service Worker registrado con éxito:", registration);
         },
@@ -94,6 +94,7 @@
     });
   }
 </script>
+
 
 
 </body>

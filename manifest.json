@@ -1,8 +1,8 @@
 {
-  "name": "GhibliAPI App",
+  "name": "Ghibli PWA",
   "short_name": "Ghibli",
   "description": "Consulta películas y personajes del mundo Ghibli",
-  "start_url": "/",
+  "start_url": "/ghibli-pwa/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1f1f1f",
