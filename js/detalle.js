@@ -5,7 +5,6 @@ function mostrarPeliculas(peliculas) {
         return;
     }
 
-    // Renderiza las películas con un botón de favorito
     app.innerHTML = peliculas.map(pelicula => `
         <div class="pelicula">
             <img src="${pelicula.image}" alt="${pelicula.title}" class="pelicula-caratula">

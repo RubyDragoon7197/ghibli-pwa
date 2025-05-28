@@ -1,12 +1,17 @@
 const CACHE_NAME = "ghibli-cache-v1";
 const urlsToCache = [
-  "/ghibli-pwa/",
-  "/ghibli-pwa/index.html",
-  "/ghibli-pwa/styles.css",
-  "/ghibli-pwa/main.js",
-  "/ghibli-pwa/manifest.json",
-  "/ghibli-pwa/icons/icon-192.png",
-  "/ghibli-pwa/icons/icon-512.png"
+  "./",
+  "./index.html",
+  "./style.css",
+  "./js/api.js",
+  "./js/aleatorios.js",
+  "./js/detalle.js",
+  "./js/favoritos.js",
+  "./js/home.js",
+  "./js/nav.js",
+  "./js/usuario.js",
+  "./js/capturados.js",
+  "./manifest.json"
 ];
 
 self.addEventListener("install", event => {

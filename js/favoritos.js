@@ -5,7 +5,6 @@ function mostrarFavoritos() {
         return;
     }
 
-    // Filtra las películas favoritas de la lista completa
     const peliculasFavoritas = peliculas.filter(pelicula => favoritos.includes(pelicula.id));
 
     mostrarPeliculas(peliculasFavoritas);

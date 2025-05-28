@@ -1,6 +1,8 @@
 async function mostrarAleatorios() {
     try {
-        const peliculas = await conexionHome();
+        if (!peliculas.length) {
+            await conexionHome();
+        }
         const peliculaAleatoria = peliculas[Math.floor(Math.random() * peliculas.length)];
         const app = document.getElementById('app');
         app.innerHTML = `

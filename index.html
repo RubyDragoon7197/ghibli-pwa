@@ -1,101 +1,74 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ghibli PWA</title>
-  
-  <!-- RUTAS RELATIVAS CORREGIDAS -->
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="manifest" href="./manifest.json" />
-  <meta name="theme-color" content="#1f1f1f" />
-
-  <script src="https://unpkg.com/lucide@latest"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ghibli PWA</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#1f1f1f" />
 </head>
 <body>
-  <main id="app">
-    <!-- contenido dinámico -->
-  </main>
+    <main id="app">
+        <!-- contenido dinámico -->
+    </main>
 
-  <aside class="c-nav">
-    <div class="c-nav-search">
-      <input type="text" id="search-bar" placeholder="Buscar películas..." oninput="buscarPeliculas(this.value)" />
-      <button onclick="buscarPeliculas(document.getElementById('search-bar').value)">
-        <i data-lucide="search"></i>
-      </button>
-    </div>
-    <button id="btn-home" class="c-nav-item" onclick="mostrarHome(); setActiveButton('btn-home')">
-      <i data-lucide="home"></i> Home
-    </button>
-    <button id="btn-usuario" class="c-nav-item" onclick="mostrarUsuario(); setActiveButton('btn-usuario')">
-      <i data-lucide="user"></i> Usuario
-    </button>
-    <button id="btn-aleatorios" class="c-nav-item" onclick="mostrarAleatorios(); setActiveButton('btn-aleatorios')">
-      <i data-lucide="shuffle"></i> Aleatorios
-    </button>
-    <button id="btn-favoritos" class="c-nav-item" onclick="mostrarFavoritos(); setActiveButton('btn-favoritos')">
-      <i data-lucide="heart"></i> Favoritos
-    </button>
-    <button id="btn-capturados" class="c-nav-item" onclick="mostrarCapturados(); setActiveButton('btn-capturados')">
-      <i data-lucide="folder"></i> Capturados
-    </button>
-    <button id="btn-detalle" class="c-nav-item" onclick="mostrarDetalle(); setActiveButton('btn-detalle')">
-      <i data-lucide="film"></i> Detalle
-    </button>
-  </aside>
-
-  <!-- SCRIPTS: RUTAS RELATIVAS CORREGIDAS -->
-  <script src="./js/api.js"></script>
-  <script src="./js/aleatorios.js"></script>
-  <script src="./js/detalle.js"></script>
-  <script src="./js/favoritos.js"></script>
-  <script src="./js/home.js"></script>
-  <script src="./js/capturados.js"></script>
-  <script src="./js/usuario.js"></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", General);
-    lucide.createIcons();
-  </script>
-
-  <script>
-    function setActiveButton(id) {
-      const buttons = document.querySelectorAll('.c-nav-item');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      const activeBtn = document.getElementById(id);
-      if (activeBtn) activeBtn.classList.add('active');
-    }
-
-    function mostrarPeliculas(peliculas) {
-      const app = document.getElementById('app');
-      if (!peliculas.length) {
-        app.innerHTML = '<p>No se encontraron películas.</p>';
-        return;
-      }
-
-      app.innerHTML = peliculas.map(pelicula => `
-        <div class="pelicula" onclick="mostrarDetalle('${pelicula.id}', 'films')">
-          <img src="${pelicula.image}" alt="${pelicula.title}" class="pelicula-caratula">
-          <h3>${pelicula.title}</h3>
+    <aside class="c-nav">
+        <div class="c-nav-search">
+            <input type="text" id="search-bar" placeholder="Buscar películas..." oninput="buscarPeliculas(this.value)" />
+            <button onclick="buscarPeliculas(document.getElementById('search-bar').value)">
+                <i data-lucide="search"></i>
+            </button>
         </div>
-      `).join('');
-    }
-  </script>
+        <button id="btn-home" class="c-nav-item" onclick="mostrarHome(); setActiveButton('btn-home')">
+            <i data-lucide="home"></i> Home
+        </button>
+        <button id="btn-usuario" class="c-nav-item" onclick="mostrarUsuario(); setActiveButton('btn-usuario')">
+            <i data-lucide="user"></i> Usuario
+        </button>
+        <button id="btn-aleatorios" class="c-nav-item" onclick="mostrarAleatorios(); setActiveButton('btn-aleatorios')">
+            <i data-lucide="shuffle"></i> Aleatorios
+        </button>
+        <button id="btn-favoritos" class="c-nav-item" onclick="mostrarFavoritos(); setActiveButton('btn-favoritos')">
+            <i data-lucide="heart"></i> Favoritos
+        </button>
+        <button id="btn-capturados" class="c-nav-item" onclick="mostrarCapturados(); setActiveButton('btn-capturados')">
+            <i data-lucide="folder"></i> Capturados
+        </button>
+        <button id="btn-detalle" class="c-nav-item" onclick="mostrarDetalle(); setActiveButton('btn-detalle')">
+            <i data-lucide="film"></i> Detalle
+        </button>
+    </aside>
 
-  <!-- REGISTRO DE SERVICE WORKER -->
-  <script>
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js").then(
-          registration => {
-            console.log("Service Worker registrado con éxito:", registration);
-          },
-          err => {
-            console.log("Error al registrar el Service Worker:", err);
-          }
-        );
-      });
-    }
-  </script>
+    <!-- Scripts JS -->
+    <script src="js/api.js"></script>
+    <script src="js/aleatorios.js"></script>
+    <script src="js/detalle.js"></script>
+    <script src="js/favoritos.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/capturados.js"></script>
+    <script src="js/usuario.js"></script>
+    <script src="js/nav.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", General);
+        lucide.createIcons();
+    </script>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("sw.js").then(
+            registration => {
+              console.log("Service Worker registrado con éxito:", registration);
+            },
+            err => {
+              console.log("Error al registrar el Service Worker:", err);
+            }
+          );
+        });
+      }
+    </script>
 </body>
 </html>
